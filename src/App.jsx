@@ -1,9 +1,11 @@
+import { useState } from 'react';
+import useApi from './useApi';
 import './App.css';
 
-// https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
-// https://rest.bandsintown.com/artists/maroon5/events?app_id=123
-
 function App() {
+  const [searchTerm, setSearchTerm] = useState('maroon5');
+  const { url, data } = useApi(searchTerm);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -13,8 +15,13 @@ function App() {
           <a href="https://bandsintown.com">bandsintown.com</a>
         </small>
       </header>
-      interface coming soon!
-      testing
+      <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+      <br />
+      {searchTerm}
+      <br />
+      {url}
+      <br />
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
