@@ -10,8 +10,10 @@ yarn build
 
 mv build docs
 
+git add docs
+
 git commit -am"deploy github pages"
 
 git push
 
-git checkout -
+# git checkout -
