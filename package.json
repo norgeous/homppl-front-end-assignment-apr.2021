@@ -5,9 +5,10 @@
   "homepage": "https://norgeous.github.io/homppl-front-end-assignment-apr.2021/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build docs",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint src --ext .js --ext .jsx --cache"
+    "lint": "eslint src --ext .js --ext .jsx --cache",
+    "deploy-gh-pages": "bash deploy-gh-pages.sh"
   },
   "browserslist": {
     "production": [
