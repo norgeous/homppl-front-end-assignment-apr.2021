@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/homppl-front-end-assignment-apr.2021/static/css/main.e93f1bb3.css",
-    "main.js": "/homppl-front-end-assignment-apr.2021/static/js/main.831bb8f4.js",
+    "main.js": "/homppl-front-end-assignment-apr.2021/static/js/main.85794f68.js",
     "static/js/787.e5bb655e.chunk.js": "/homppl-front-end-assignment-apr.2021/static/js/787.e5bb655e.chunk.js",
     "index.html": "/homppl-front-end-assignment-apr.2021/index.html",
     "main.e93f1bb3.css.map": "/homppl-front-end-assignment-apr.2021/static/css/main.e93f1bb3.css.map",
-    "main.831bb8f4.js.map": "/homppl-front-end-assignment-apr.2021/static/js/main.831bb8f4.js.map",
+    "main.85794f68.js.map": "/homppl-front-end-assignment-apr.2021/static/js/main.85794f68.js.map",
     "787.e5bb655e.chunk.js.map": "/homppl-front-end-assignment-apr.2021/static/js/787.e5bb655e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e93f1bb3.css",
-    "static/js/main.831bb8f4.js"
+    "static/js/main.85794f68.js"
   ]
 }
