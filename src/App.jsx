@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import './App.css';
 
 // https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
@@ -8,7 +9,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Who’s in town</h1>
-        <small>powered by <a href="https://bandsintown.com">bandsintown.com</a></small>
+        <small>
+          powered by
+          <a href="https://bandsintown.com">bandsintown.com</a>
+        </small>
       </header>
       interface coming soon!
     </div>
