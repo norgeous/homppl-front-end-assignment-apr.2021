@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import './App.css';
 
 // https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
