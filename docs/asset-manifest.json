@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.e93f1bb3.css",
-    "main.js": "/static/js/main.a57ec56b.js",
-    "static/js/787.e5bb655e.chunk.js": "/static/js/787.e5bb655e.chunk.js",
-    "index.html": "/index.html",
-    "main.e93f1bb3.css.map": "/static/css/main.e93f1bb3.css.map",
-    "main.a57ec56b.js.map": "/static/js/main.a57ec56b.js.map",
-    "787.e5bb655e.chunk.js.map": "/static/js/787.e5bb655e.chunk.js.map"
+    "main.css": "/homppl-front-end-assignment-apr.2021/static/css/main.e93f1bb3.css",
+    "main.js": "/homppl-front-end-assignment-apr.2021/static/js/main.93bac9e1.js",
+    "static/js/787.e5bb655e.chunk.js": "/homppl-front-end-assignment-apr.2021/static/js/787.e5bb655e.chunk.js",
+    "index.html": "/homppl-front-end-assignment-apr.2021/index.html",
+    "main.e93f1bb3.css.map": "/homppl-front-end-assignment-apr.2021/static/css/main.e93f1bb3.css.map",
+    "main.93bac9e1.js.map": "/homppl-front-end-assignment-apr.2021/static/js/main.93bac9e1.js.map",
+    "787.e5bb655e.chunk.js.map": "/homppl-front-end-assignment-apr.2021/static/js/787.e5bb655e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e93f1bb3.css",
-    "static/js/main.a57ec56b.js"
+    "static/js/main.93bac9e1.js"
   ]
 }
