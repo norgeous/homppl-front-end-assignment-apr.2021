@@ -4,6 +4,8 @@ git checkout gh-pages
 
 git merge main
 
+rm -r build docs
+
 yarn build
 
 mv build docs
