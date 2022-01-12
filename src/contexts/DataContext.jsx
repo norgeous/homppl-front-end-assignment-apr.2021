@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from 'react';
 const DataContext = createContext();
 
 const DataContextProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState('wutang clan');
+  const [searchTerm, setSearchTerm] = useState('wutang');
 
   return (
     <DataContext.Provider

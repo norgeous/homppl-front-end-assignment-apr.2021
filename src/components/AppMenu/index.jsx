@@ -99,7 +99,7 @@ const AppMenu = () => {
               'aria-labelledby': 'basic-button',
             }}
           >
-            <MenuItem onClick={handleClose}>Favourite Artists</MenuItem>
+            <MenuItem onClick={handleClose}>Favourited Events</MenuItem>
             <MenuItem onClick={handleClose}>About this App</MenuItem>
           </Menu>
           <Typography

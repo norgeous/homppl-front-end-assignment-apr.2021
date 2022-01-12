@@ -1,4 +1,9 @@
 /* eslint-disable react/prop-types */
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 const Artist = ({ artistData }) => {
   if (!artistData) return null;
@@ -9,13 +14,25 @@ const Artist = ({ artistData }) => {
   } = artistData;
 
   return (
-    <div style={{ margin: 10, border: '1px solid green' }}>
-      <h2>{name}</h2>
-      <img src={imageUrl} alt="artist" width={100} />
-
-      <hr />
-      <pre>{JSON.stringify(artistData, null, 2)}</pre>
-    </div>
+    <Card sx={{ display: 'flex' }}>
+      <CardMedia
+        component="img"
+        sx={{ width: 151 }}
+        image={imageUrl}
+        alt="artist"
+      />
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+            {name}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            {name}
+          </Typography>
+          {/* <pre>{JSON.stringify(artistData, null, 2)}</pre> */}
+        </CardContent>
+      </Box>
+    </Card>
   );
 };
 
