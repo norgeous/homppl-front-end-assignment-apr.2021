@@ -27,8 +27,9 @@ const Artist = ({ artistData }) => {
             {name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            <pre>{JSON.stringify(artistData, null, 2)}</pre>
+            {name}
           </Typography>
+          {/* <pre>{JSON.stringify(artistData, null, 2)}</pre> */}
         </CardContent>
       </Box>
     </Card>
