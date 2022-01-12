@@ -13,10 +13,6 @@ const App = () => (
     </header>
 
     <SearchPage />
-
-    <hr />
-
-    {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
   </div>
 );
 
