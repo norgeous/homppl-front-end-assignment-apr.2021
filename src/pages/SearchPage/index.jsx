@@ -8,7 +8,7 @@ const SearchPage = () => {
   const { data } = useApi(searchTerm);
 
   return (
-    <div style={{ margin: 10, border: '1px solid blue' }}>
+    <div style={{ margin: 10, padding: 20, border: '1px solid blue' }}>
       <p>{`Search results for "${searchTerm}"`}</p>
 
       {!data.length ? <p>Loading artist data</p> : <Artist artistData={data[0].artist} />}
