@@ -1,9 +1,6 @@
 import { useDataContext } from '../../contexts/DataContext';
 
 const artistNames = [
-  'wutang',
-  'maroon5',
-  'ed sheeran',
   'a',
   'b',
   'c',
@@ -17,6 +14,9 @@ const artistNames = [
   't',
   'w',
   'x',
+  'wutang',
+  'maroon5',
+  'ed sheeran',
 ];
 
 const QA = () => {

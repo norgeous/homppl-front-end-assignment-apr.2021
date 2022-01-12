@@ -41,7 +41,8 @@ const relativeTime = (date) => {
   console.log({ seconds });
   const interval = intervals.find((i) => i.seconds < s);
   const count = Math.floor(s / interval.seconds);
-  return `${isPast ? '' : 'in '}${count} ${interval.label}${count !== 1 ? 's' : ''}${isPast ? ' ago' : ''}`;
+  const c = isPast ? count : count + 1;
+  return `${isPast ? '' : 'in '}${c} ${interval.label}${c !== 1 ? 's' : ''}${isPast ? ' ago' : ''}`;
 };
 
 const Event = ({ eventData, index, artistData }) => {
