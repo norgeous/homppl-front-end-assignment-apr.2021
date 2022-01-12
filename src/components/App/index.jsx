@@ -1,11 +1,14 @@
-import Menu from '../Menu';
+import DataContextProvider from '../../contexts/DataContext';
+import Menu from '../AppMenu';
 import SearchPage from '../../pages/SearchPage';
 
 const App = () => (
-  <div className="App">
-    <Menu />
-    <SearchPage />
-  </div>
+  <DataContextProvider>
+    <div className="App">
+      <Menu />
+      <SearchPage />
+    </div>
+  </DataContextProvider>
 );
 
 export default App;
