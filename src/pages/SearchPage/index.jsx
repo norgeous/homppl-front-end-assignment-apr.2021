@@ -1,3 +1,5 @@
+import Typography from '@mui/material/Typography';
+
 import { useDataContext } from '../../contexts/DataContext';
 import useApi from '../../hooks/useApi';
 import Artist from '../../components/Artist';
@@ -6,6 +8,19 @@ import Event from '../../components/Event';
 const SearchPage = () => {
   const { searchTerm } = useDataContext();
   const { data } = useApi(searchTerm);
+
+  if (searchTerm === '') {
+    return (
+      <Typography
+        variant="subtitle1"
+        color="text.secondary"
+        component="div"
+        align="center"
+      >
+        To begin, find an artist with search feature above!
+      </Typography>
+    );
+  }
 
   return (
     <div style={{ margin: 10, padding: 20 }}>
