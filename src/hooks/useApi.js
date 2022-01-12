@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 
 export default (searchTerm) => {
   const url = `https://rest.bandsintown.com/artists/${searchTerm}/events?app_id=123`;
+  // https://rest.bandsintown.com/artists/maroon5?app_id=123
 
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         setData(json);
       });
   }, [url]);

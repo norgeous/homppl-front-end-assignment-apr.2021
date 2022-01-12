@@ -14,6 +14,6 @@ git add docs
 
 git commit -am"deploy github pages"
 
-git push
+# git push
 
 # git checkout -
