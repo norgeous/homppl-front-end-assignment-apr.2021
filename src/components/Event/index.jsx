@@ -110,11 +110,9 @@ const Event = ({ eventData, index, artistData }) => {
               <Typography>
                 {`${formattedDatetime} (${relative})`}
               </Typography>
-
               <Typography>
                 {description}
               </Typography>
-
               <iframe
                 src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=4&output=embed`}
                 width="199"
