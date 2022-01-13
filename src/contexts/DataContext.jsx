@@ -1,30 +1,38 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useState } from 'react';
 
 const DataContext = createContext();
 
-const unique = (value, index, self) => self.indexOf(value) === index;
+// const unique = (value, index, self) => self.indexOf(value) === index;
+
+const getIsFav = (favouritedEvents, newFavouritedEvent) => favouritedEvents
+  .map(({ id }) => id)
+  .includes(newFavouritedEvent.id);
 
 const DataContextProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [favouritedEvents, setFavouritedEvents] = useState([]);
   const toggleFavouritedEvent = (newFavouritedEvent) => {
-    const isFavouritedEvent = favouritedEvents.includes(newFavouritedEvent);
+    const isFavouritedEvent = getIsFav(favouritedEvents, newFavouritedEvent);
+
     if (!isFavouritedEvent) {
-      setFavouritedEvents([
-        ...favouritedEvents,
+      const newFavouritedEvents = [
         newFavouritedEvent,
-      ].filter(unique));
+        ...favouritedEvents,
+      ];
+
+      setFavouritedEvents(newFavouritedEvents);
     } else {
-      setFavouritedEvents(
-        favouritedEvents.filter((favouritedEvent) => favouritedEvent !== newFavouritedEvent),
-      );
+      const newFavouritedEvents = favouritedEvents
+        .filter((favouritedEvent) => favouritedEvent.id !== newFavouritedEvent.id);
+
+      setFavouritedEvents(newFavouritedEvents);
     }
   };
 
   return (
     <DataContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{
         searchTerm,
         setSearchTerm,
@@ -41,4 +49,4 @@ const DataContextProvider = ({ children }) => {
 const useDataContext = () => useContext(DataContext); // hook
 
 export default DataContextProvider;
-export { useDataContext };
+export { useDataContext, getIsFav };
