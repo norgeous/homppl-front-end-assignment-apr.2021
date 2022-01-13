@@ -71,8 +71,9 @@ const Event = ({ eventData, index, artistData }) => {
     datetime,
     description,
     lineup,
-    venue,
     venue: {
+      name,
+      location,
       latitude,
       longitude,
     },
@@ -114,28 +115,44 @@ const Event = ({ eventData, index, artistData }) => {
                   <Typography sx={{ mb: 2 }}>
                     {description}
                   </Typography>
-                  lineup:
-                  <pre>{JSON.stringify(lineup, null, 2)}</pre>
+
+                  <Typography sx={{ mb: 2 }}>
+                    {`Lineup: ${lineup.join(', ')}`}
+                  </Typography>
 
                   <Typography variant="h6">
                     Venue Info
                   </Typography>
-                  <pre>{JSON.stringify(venue, null, 2)}</pre>
-                  <iframe
-                    src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=4&output=embed`}
-                    width="199"
-                    height="200"
-                    frameBorder="0"
-                    scrolling="no"
-                    marginHeight="0"
-                    marginWidth="0"
-                    title="map"
-                  />
+                  <Typography>
+                    {name}
+                  </Typography>
+                  <Typography sx={{ mb: 2 }}>
+                    {location}
+                  </Typography>
+                  <Box sx={{ mb: 2 }}>
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=4&output=embed`}
+                      width="199"
+                      height="200"
+                      frameBorder="0"
+                      scrolling="no"
+                      marginHeight="0"
+                      marginWidth="0"
+                      title="map"
+                    />
+                  </Box>
 
                   <Typography variant="h6">
                     Special Offers
                   </Typography>
-                  <pre>{JSON.stringify(offers, null, 2)}</pre>
+                  {offers.length === 0 && (
+                    <Typography>
+                      None available
+                    </Typography>
+                  )}
+                  {offers.length > 0 && offers.map(({ type, status, url }) => (
+                    <a target="_blank" href={url} rel="noreferrer">{`${type} (${status})`}</a>
+                  ))}
                 </CardContent>
                 <CardActions>
                   <Button size="small" onClick={() => console.log('not yet implemented')}>Add to favorites</Button>
