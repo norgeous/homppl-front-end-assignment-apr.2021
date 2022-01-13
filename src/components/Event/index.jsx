@@ -94,12 +94,15 @@ const Event = ({ eventData, index }) => {
           <Typography variant="h5">
             {`Event #${index + 1}: ${eventName}`}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
+          <Typography variant="subtitle1" color="text.secondary">
             {`${formattedDatetime} (${relative})`}
           </Typography>
         </CardContent>
         <CardActions>
           <Button size="small" onClick={handleOpen}>See event info</Button>
+          <Button size="small" onClick={() => toggleFavouritedEvent(eventData)}>
+            {!isFavouritedEvent ? 'Add to favorites' : 'Remove from favorites'}
+          </Button>
           <Modal
             open={open}
             onClose={handleClose}

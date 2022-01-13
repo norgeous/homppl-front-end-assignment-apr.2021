@@ -11,7 +11,10 @@ const getIsFav = (favouritedEvents, newFavouritedEvent) => favouritedEvents
   .includes(newFavouritedEvent.id);
 
 const DataContextProvider = ({ children }) => {
+  const [page, setPage] = useState('SEARCH');
+
   const [searchTerm, setSearchTerm] = useState('');
+
   const [favouritedEvents, setFavouritedEvents] = useState([]);
   const toggleFavouritedEvent = (newFavouritedEvent) => {
     const isFavouritedEvent = getIsFav(favouritedEvents, newFavouritedEvent);
@@ -34,6 +37,9 @@ const DataContextProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        page,
+        setPage,
+
         searchTerm,
         setSearchTerm,
 
