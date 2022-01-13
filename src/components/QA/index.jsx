@@ -18,6 +18,7 @@ const artistNames = [
   'maroon5',
   'ed sheeran',
   'sasasas',
+  'andy c',
 ];
 
 const QA = () => {
