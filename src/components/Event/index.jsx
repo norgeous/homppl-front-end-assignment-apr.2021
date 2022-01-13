@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
-import { useDataContext } from '../../contexts/DataContext';
+import { useDataContext, getIsFav } from '../../contexts/DataContext';
 
 const style = {
   position: 'absolute',
@@ -21,17 +21,15 @@ const style = {
   overflowY: 'auto',
 };
 
-const getEventName = (eventData, artistData) => {
+const getEventName = (eventData) => {
   const {
     title,
     venue: { name: venueName },
   } = eventData;
 
-  const { name } = artistData;
-
   if (title && title !== '') return title;
 
-  return `${name} @ ${venueName}`;
+  return venueName;
 };
 
 const dFormat = {
@@ -62,13 +60,13 @@ const relativeTime = (date) => {
   return `${isPast ? '' : 'in '}${c} ${interval.label}${c !== 1 ? 's' : ''}${isPast ? ' ago' : ''}`;
 };
 
-const Event = ({ eventData, index, artistData }) => {
+const Event = ({ eventData, index }) => {
   const { favouritedEvents, toggleFavouritedEvent } = useDataContext();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  if (!eventData || !artistData) return null;
+  if (!eventData) return null;
 
   const {
     datetime,
@@ -83,11 +81,11 @@ const Event = ({ eventData, index, artistData }) => {
     offers,
   } = eventData;
 
-  const eventName = getEventName(eventData, artistData);
+  const eventName = getEventName(eventData);
   const formattedDatetime = formatDate(datetime);
   const relative = relativeTime(new Date(datetime));
 
-  const isFavouritedEvent = favouritedEvents.includes(eventData);
+  const isFavouritedEvent = getIsFav(favouritedEvents, eventData);
 
   return (
     <Box m={2}>
@@ -96,12 +94,15 @@ const Event = ({ eventData, index, artistData }) => {
           <Typography variant="h5">
             {`Event #${index + 1}: ${eventName}`}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
+          <Typography variant="subtitle1" color="text.secondary">
             {`${formattedDatetime} (${relative})`}
           </Typography>
         </CardContent>
         <CardActions>
           <Button size="small" onClick={handleOpen}>See event info</Button>
+          <Button size="small" onClick={() => toggleFavouritedEvent(eventData)}>
+            {!isFavouritedEvent ? 'Add to favorites' : 'Remove from favorites'}
+          </Button>
           <Modal
             open={open}
             onClose={handleClose}

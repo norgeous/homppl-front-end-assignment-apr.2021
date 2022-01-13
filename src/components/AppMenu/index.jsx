@@ -68,8 +68,10 @@ const AppMenu = () => {
   const {
     searchTerm,
     setSearchTerm,
+    setPage,
   } = useDataContext();
   const handleChange = (event) => {
+    setPage('SEARCH');
     setSearchTerm(event.target.value);
   };
 
@@ -99,8 +101,8 @@ const AppMenu = () => {
               'aria-labelledby': 'basic-button',
             }}
           >
-            <MenuItem onClick={handleClose}>Favourited Events</MenuItem>
-            <MenuItem onClick={handleClose}>About this App</MenuItem>
+            <MenuItem onClick={() => { setPage('FAVS'); handleClose(); }}>Favourited Events</MenuItem>
+            <MenuItem onClick={() => { setPage('SEARCH'); handleClose(); }}>Search Results</MenuItem>
           </Menu>
           <Typography
             variant="h6"
