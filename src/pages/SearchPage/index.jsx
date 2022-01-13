@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import { useDataContext } from '../../contexts/DataContext';
@@ -11,20 +12,31 @@ const SearchPage = () => {
 
   if (searchTerm === '') {
     return (
-      <Typography
-        variant="subtitle1"
-        color="text.secondary"
-        component="div"
-        align="center"
-      >
-        To begin, find an artist with search feature above!
-      </Typography>
+      <Box m={2}>
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          component="div"
+          align="center"
+        >
+          To begin, find an artist with search feature above!
+        </Typography>
+      </Box>
     );
   }
 
   return (
-    <div style={{ margin: 10, padding: 20 }}>
-      <p>{`Search results for "${searchTerm}"`}</p>
+    <>
+      <Box m={2}>
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          component="div"
+          align="center"
+        >
+          {`Search results for "${searchTerm}"`}
+        </Typography>
+      </Box>
 
       {!data.length ? <p>Loading artist data</p> : <Artist artistData={data[0].artist} />}
       {!data.length
@@ -37,7 +49,7 @@ const SearchPage = () => {
             artistData={data[0].artist}
           />
         ))}
-    </div>
+    </>
   );
 };
 

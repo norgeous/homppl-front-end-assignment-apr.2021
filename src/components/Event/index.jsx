@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -51,6 +52,10 @@ const Event = ({ eventData, index, artistData }) => {
   const {
     datetime,
     description,
+    // venue: {
+    //   latitude,
+    //   longitude,
+    // },
   } = eventData;
 
   const eventName = getEventName(eventData, artistData);
@@ -58,20 +63,31 @@ const Event = ({ eventData, index, artistData }) => {
   const relative = relativeTime(new Date(datetime));
 
   return (
-    <Card sx={{ display: 'flex' }}>
-      <CardContent sx={{ flex: '1 0 auto' }}>
-        <Typography component="div" variant="h5">
-          {`Event #${index + 1}: ${eventName}`}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-          {description}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-          {`${formattedDatetime} (${relative})`}
-        </Typography>
-        {/* <pre>{JSON.stringify(eventData, null, 2)}</pre> */}
-      </CardContent>
-    </Card>
+    <Box m={2}>
+      <Card sx={{ display: 'flex' }} raised>
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+            {`Event #${index + 1}: ${eventName}`}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            {description}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            {`${formattedDatetime} (${relative})`}
+          </Typography>
+          {/* <iframe
+            src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=4&output=embed`}
+            width="199"
+            height="200"
+            frameBorder="0"
+            scrolling="no"
+            marginHeight="0"
+            marginWidth="0"
+            title="map"
+          /> */}
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 

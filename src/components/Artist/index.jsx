@@ -14,21 +14,23 @@ const Artist = ({ artistData }) => {
   } = artistData;
 
   return (
-    <Card sx={{ display: 'flex' }}>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image={imageUrl}
-        alt="artist"
-      />
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            {name}
-          </Typography>
-        </CardContent>
-      </Box>
-    </Card>
+    <Box m={2}>
+      <Card sx={{ display: 'flex' }} raised>
+        <CardMedia
+          component="img"
+          sx={{ width: 151 }}
+          image={imageUrl}
+          alt="artist"
+        />
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardContent sx={{ flex: '1 0 auto' }}>
+            <Typography component="div" variant="h5">
+              {name}
+            </Typography>
+          </CardContent>
+        </Box>
+      </Card>
+    </Box>
   );
 };
 
