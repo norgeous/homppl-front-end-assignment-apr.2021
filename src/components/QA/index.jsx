@@ -23,7 +23,7 @@ const QA = () => {
   const { setSearchTerm } = useDataContext();
 
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       {artistNames.map((artistName) => (
         <button type="button" key={artistName} onClick={() => setSearchTerm(artistName)}>{artistName}</button>
       ))}
