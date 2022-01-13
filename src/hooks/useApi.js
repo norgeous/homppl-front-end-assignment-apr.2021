@@ -13,7 +13,29 @@ export default (searchTerm) => {
       setError(undefined);
       setLoading(true);
       fetch(url)
+        .then((response) => {
+          if (response.status === 404) {
+            const err = new Error(`Artist "${searchTerm}" not found`);
+            throw err;
+          }
+
+          if (!response.ok) {
+            const err = new Error('Not 2xx response');
+            err.response = response;
+            throw err;
+          }
+
+          return response;
+        })
         .then((response) => response.json())
+        .then((json) => {
+          if (json.length === 0) {
+            const err = new Error(`No events for "${searchTerm}" found`);
+            throw err;
+          }
+
+          return json;
+        })
         .then((json) => {
           setData(json);
           setLoading(false);

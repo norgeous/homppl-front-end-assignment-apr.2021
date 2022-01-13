@@ -50,7 +50,7 @@ const SearchPage = () => {
           component="div"
           align="center"
         >
-          ERROR
+          {error.message}
         </Typography>
       </Box>
     );
