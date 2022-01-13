@@ -8,6 +8,8 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
+import { useDataContext } from '../../contexts/DataContext';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -61,11 +63,12 @@ const relativeTime = (date) => {
 };
 
 const Event = ({ eventData, index, artistData }) => {
+  const { favouritedEvents, toggleFavouritedEvent } = useDataContext();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  if (!eventData) return null;
+  if (!eventData || !artistData) return null;
 
   const {
     datetime,
@@ -84,6 +87,8 @@ const Event = ({ eventData, index, artistData }) => {
   const formattedDatetime = formatDate(datetime);
   const relative = relativeTime(new Date(datetime));
 
+  const isFavouritedEvent = favouritedEvents.includes(eventData);
+
   return (
     <Box m={2}>
       <Card raised>
@@ -96,7 +101,7 @@ const Event = ({ eventData, index, artistData }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={handleOpen}>Learn More</Button>
+          <Button size="small" onClick={handleOpen}>See event info</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -151,11 +156,13 @@ const Event = ({ eventData, index, artistData }) => {
                     </Typography>
                   )}
                   {offers.length > 0 && offers.map(({ type, status, url }) => (
-                    <a target="_blank" href={url} rel="noreferrer">{`${type} (${status})`}</a>
+                    <a target="_blank" href={url} rel="noreferrer" key={type}>{`${type} (${status})`}</a>
                   ))}
                 </CardContent>
                 <CardActions>
-                  <Button size="small" onClick={() => console.log('not yet implemented')}>Add to favorites</Button>
+                  <Button size="small" onClick={() => toggleFavouritedEvent(eventData)}>
+                    {!isFavouritedEvent ? 'Add to favorites' : 'Remove from favorites'}
+                  </Button>
                 </CardActions>
               </Card>
             </Box>

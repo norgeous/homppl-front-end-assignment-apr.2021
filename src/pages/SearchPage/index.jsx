@@ -5,10 +5,11 @@ import { useDataContext } from '../../contexts/DataContext';
 import useApi from '../../hooks/useApi';
 import Artist from '../../components/Artist';
 import Event from '../../components/Event';
+import EventsList from '../../components/EventsList';
 
 const SearchPage = () => {
   const { searchTerm } = useDataContext();
-  const { data } = useApi(searchTerm);
+  const { data, loading, error } = useApi(searchTerm);
 
   if (searchTerm === '') {
     return (
@@ -20,6 +21,36 @@ const SearchPage = () => {
           align="center"
         >
           To begin, find an artist with search feature above!
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (loading) {
+    return (
+      <Box m={2}>
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          component="div"
+          align="center"
+        >
+          loading data
+        </Typography>
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box m={2}>
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          component="div"
+          align="center"
+        >
+          {error.message}
         </Typography>
       </Box>
     );
@@ -49,6 +80,7 @@ const SearchPage = () => {
             artistData={data[0].artist}
           />
         ))}
+      <EventsList events={data} />
     </>
   );
 };
