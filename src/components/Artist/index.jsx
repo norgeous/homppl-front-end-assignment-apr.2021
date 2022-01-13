@@ -22,7 +22,7 @@ const Artist = ({ artistData }) => {
           image={imageUrl}
           alt="artist"
         />
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box>
           <CardContent sx={{ flex: '1 0 auto' }}>
             <Typography component="div" variant="h5">
               {name}
